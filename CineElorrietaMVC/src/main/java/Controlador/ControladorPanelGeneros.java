@@ -1,12 +1,12 @@
 package Controlador;
 
 import Modelo.Modelo;
+import Modelo.Pelicula;
 import Vista.PanelBienvenida;
 import Vista.PanelGeneros;
 import Vista.Vista;
 
 public class ControladorPanelGeneros {
-
 	private Modelo modelo;
 	private Vista vista;
 	private Controlador controlador;
