@@ -29,7 +29,7 @@ public class PanelGeneros extends JPanel {
 	private JLabel lblGeneros;
 	private ControladorPanelGeneros controladorPanelGeneros;
 	private JTextField txt_seleccion;
-
+	String resultado="";
 	public PanelGeneros(ControladorPanelGeneros controladorPanelGeneros) {
 		// ARRAY DE PELICULAS
 		Pelicula[] peliculas = new Pelicula[16];
@@ -55,13 +55,13 @@ public class PanelGeneros extends JPanel {
 		peliculas[15] = new Pelicula(4, "Alien, el octavo pasajero:", 117);
 
 		// ARRAYLIST PARA PARA PELIS SELECCIONADAS
-		ArrayList<Pelicula> pelis_seleccion = new ArrayList<>();
+		ArrayList <Pelicula> pelis_seleccion = new ArrayList<>();
 
 		this.controladorPanelGeneros = controladorPanelGeneros;
 
 		setLayout(null);
 
-		// ---------------------------GENEROS----------------------------------------------
+		// ---------------------------Ventana----------------------------------------------
 		lblGeneros = new JLabel("Panel Generos");
 		lblGeneros.setBounds(61, 35, 115, 14);
 		add(lblGeneros);
@@ -76,7 +76,7 @@ public class PanelGeneros extends JPanel {
 		add(lbl_SeleccionGenero);
 
 		txt_seleccion = new JTextField();
-		txt_seleccion.setBounds(61, 252, 60, 37);
+		txt_seleccion.setBounds(61, 252, 168, 37);
 		add(txt_seleccion);
 		txt_seleccion.setColumns(10);
 
@@ -90,7 +90,7 @@ public class PanelGeneros extends JPanel {
 		DefaultListModel modelo = new DefaultListModel();//necesario crear un modelo con el que llenar el jlist
 		
 		JButton btnElegir = new JButton("Aceptar");
-		btnElegir.setBounds(140, 304, 89, 23);
+		btnElegir.setBounds(61, 304, 168, 23);
 		btnElegir.addActionListener(new ActionListener() {
 		
 
@@ -106,6 +106,7 @@ public class PanelGeneros extends JPanel {
 							System.out.println(peliculas[i].getTitulo());
 							resultado += peliculas[i].getTitulo() + "\n";
 							modelo.addElement(resultado);
+							txt_seleccion.setText("");
 							
 						}
 
@@ -120,6 +121,7 @@ public class PanelGeneros extends JPanel {
 							System.out.println(peliculas[i].getTitulo());
 							resultado += peliculas[i].getTitulo() + "\n";
 							modelo.addElement(resultado);
+							txt_seleccion.setText("");
 						
 							
 						
@@ -135,6 +137,7 @@ public class PanelGeneros extends JPanel {
 							System.out.println(peliculas[i].getTitulo());
 							resultado += peliculas[i].getTitulo() + "\n";
 							modelo.addElement(resultado);
+							txt_seleccion.setText("");
 							
 						}
 					}
@@ -148,42 +151,64 @@ public class PanelGeneros extends JPanel {
 							System.out.println(peliculas[i].getTitulo());
 							resultado += peliculas[i].getTitulo() + "\n";
 							modelo.addElement(resultado);
+							txt_seleccion.setText("");
 						}
 					}
 
 				}
+				/*REVISAR XQ SIEMPRE SALTA EL MESNSAJE DE SELECCION INCORRECTA
+				 * 
+				 * if ((!seleccion.equals("4")||(!seleccion.equals("3"))||(!seleccion.equals("2"))||(!seleccion.equals("1"))))  {
+					JOptionPane.showMessageDialog(null, "Seleccion incorrecta");
+					txt_seleccion.setText("");
+					
+				}
+				else{
+					JOptionPane.showMessageDialog(null, "Seleccion incorrecta");
+					txt_seleccion.setText("");
+				}*/
 			
 				lista_pelis.setModel(modelo);
 			}
 		});
 
 		add(btnElegir);
-		// ---------------------------PELIS---------------------------------------------
+	
 		JLabel lblPelis = new JLabel("Peliculas Disponibles");
 		lblPelis.setBounds(282, 35, 181, 14);
 		add(lblPelis);
 
-		JButton btnAnadir = new JButton("A\u00F1adir");
-		btnAnadir.setBounds(350, 304, 89, 23);
+		JButton btnAnadir = new JButton("Seleccionar");
+
+		btnAnadir.setBounds(271, 304, 168, 23);
 		add(btnAnadir);
-		//probar para añadir pelis al arraylist desde j list
-		//pelis_seleccion.add((Pelicula) (lista_pelis.getModel().getElementAt(lista_pelis.getSelectedIndex())));
-		JLabel lblSeleccion = new JLabel("Panel Generos");
-		lblSeleccion.setBounds(492, 35, 115, 14);
-		add(lblSeleccion);
-		// ---------------------------PELIS
-		// SELECCIONADAS----------------------------------------------
-		JTextPane txtSeleccion = new JTextPane();
-		txtSeleccion.setBounds(492, 63, 168, 133);
-		txtSeleccion.setText("");
-		add(txtSeleccion);
 
-		JButton btnAceptar = new JButton("Aceptar");
-		btnAceptar.setBounds(571, 304, 89, 23);
-		add(btnAceptar);
-
+		/*INTENTO DE RELLENAR EL ARRAYLIST-QUITAR DE ESTA PANTALLA
+		 * 
+		 * btnAnadir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			//recogemos la peli seleccionada y rellenamos el arraylist 
+			for (int i = 0; i < peliculas.length; i++) {
+			
+				if(peliculas[i].getTitulo().equals(lista_pelis.getSelectedValue())) {
+					System.out.println(lista_pelis.getSelectedValue());
+					System.out.println(peliculas[i].getTitulo());
+					pelis_seleccion.add(peliculas[i]);
+				
+				}
+			}
+			for (int i = 0; i < pelis_seleccion.size(); i++) {
+			//System.out.println(pelis_seleccion.get(i).toString());
+				resultado+=pelis_seleccion.get(i).getTitulo()+"\n";
+			
+			}
+			//pelis_seleccion.add((Pelicula) lista_pelis.getSelectedValue());
+				//pelis_seleccion.add((Pelicula) (lista_pelis.getModel().getElementAt(lista_pelis.getSelectedIndex())));
+			}
+		});
+*/
 		btnVolver = new JButton("Volver");
-		btnVolver.setBounds(571, 382, 89, 23);
+		btnVolver.setBounds(350, 372, 89, 23);
 		add(btnVolver);
 
 
@@ -204,14 +229,4 @@ public class PanelGeneros extends JPanel {
 		};
 	}
 }
-/*
- * private ActionListener listenerBotonPanelPelis(ControladorPanelGeneros
- * controladorPanelGeneros) { return new ActionListener() { String seleccion;
- * seleccion = txt_seleccion.getText();// recogemos el dato de seleccion de
- * genero if (seleccion.equals("1") || seleccion.equals("2") ||
- * seleccion.equals("3") || seleccion.equals("4")) {
- * 
- * } else { JOptionPane.showMessageDialog(null, "Seleccion incorrecta");
- * 
- * } }; }
- */
+

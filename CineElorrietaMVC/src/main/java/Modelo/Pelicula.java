@@ -7,10 +7,11 @@ public class Pelicula {
 	int genero;
 	String titulo;
 	double duracion;
-	
+
 	public Pelicula() {
+		super();
 	}
-	
+
 	public Pelicula(int genero, String titulo, double duracion) {
 		super();
 		this.genero = genero;
@@ -40,12 +41,6 @@ public class Pelicula {
 	public void setDuracion(double duracion) {
 		this.duracion = duracion;
 	}
-
-	@Override
-	public String toString() {
-		return "Pelicula [genero=" + genero + ", titulo=" + titulo + ", duracion=" + duracion + "]";
-	}
-
 
 	
 }

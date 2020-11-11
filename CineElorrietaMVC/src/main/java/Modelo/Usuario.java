@@ -8,6 +8,14 @@ public class Usuario {
 	public Usuario() {
 		
 	}
+	
+
+	public Usuario(String nombre, String pswd) {
+		super();
+		this.nombre = nombre;
+		this.pswd = pswd;
+	}
+
 
 	public String getNombre() {
 		return nombre;
