@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -16,6 +17,10 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import javax.swing.JTextPane;
+import javax.swing.JTabbedPane;
+import javax.swing.border.BevelBorder;
+import java.awt.Color;
+import javax.swing.JScrollPane;
 
 @SuppressWarnings("serial")
 public class PanelGeneros extends JPanel {
@@ -50,7 +55,7 @@ public class PanelGeneros extends JPanel {
 		peliculas[15] = new Pelicula(4, "Alien, el octavo pasajero:", 117);
 
 		// ARRAYLIST PARA PARA PELIS SELECCIONADAS
-		ArrayList<Pelicula> pelis_Seleccion = new ArrayList<>();
+		ArrayList<Pelicula> pelis_seleccion = new ArrayList<>();
 
 		this.controladorPanelGeneros = controladorPanelGeneros;
 
@@ -74,63 +79,83 @@ public class PanelGeneros extends JPanel {
 		txt_seleccion.setBounds(61, 252, 60, 37);
 		add(txt_seleccion);
 		txt_seleccion.setColumns(10);
-		// HAY QUE CAMBIARLO!! PARA PODER SELECCIONAR Y QUE NO SE ACUMULE DMMENTO EN
-		// TEXTO!!
-		JTextPane txtPelis = new JTextPane();
-		txtPelis.setBounds(282, 63, 168, 133);
-		// txtPelis.setText("");
-		add(txtPelis);
 
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(271, 63, 168, 137);
+		add(scrollPane);
+		
+		JList lista_pelis = new JList();
+		scrollPane.setViewportView(lista_pelis);
+		
+		DefaultListModel modelo = new DefaultListModel();//necesario crear un modelo con el que llenar el jlist
+		
 		JButton btnElegir = new JButton("Aceptar");
 		btnElegir.setBounds(140, 304, 89, 23);
 		btnElegir.addActionListener(new ActionListener() {
-			String resultado = "";
+		
 
 			public void actionPerformed(ActionEvent arg0) {
 				String seleccion;
 				seleccion = txt_seleccion.getText();// recogemos el dato de seleccion de genero
 
 				if (seleccion.equals("1")) {
+					modelo.clear();//vaciamos el jlist
 					for (int i = 0; i < peliculas.length; i++) {
 						if (peliculas[i].getGenero() == 1) {
+							String resultado = "";
 							System.out.println(peliculas[i].getTitulo());
 							resultado += peliculas[i].getTitulo() + "\n";
+							modelo.addElement(resultado);
+							
 						}
 
 					}
 
 				}
 				if (seleccion.equals("2")) {
+					modelo.clear();
 					for (int i = 0; i < peliculas.length; i++) {
 						if (peliculas[i].getGenero() == 2) {
+							String resultado = "";
 							System.out.println(peliculas[i].getTitulo());
 							resultado += peliculas[i].getTitulo() + "\n";
+							modelo.addElement(resultado);
+						
+							
+						
 						}
 
 					}
 				}
 				if (seleccion.equals("3")) {
+					modelo.clear();
 					for (int i = 0; i < peliculas.length; i++) {
 						if (peliculas[i].getGenero() == 3) {
+							String resultado = "";
 							System.out.println(peliculas[i].getTitulo());
 							resultado += peliculas[i].getTitulo() + "\n";
+							modelo.addElement(resultado);
+							
 						}
 					}
 
 				}
 				if (seleccion.equals("4")) {
+					modelo.clear();
 					for (int i = 0; i < peliculas.length; i++) {
 						if (peliculas[i].getGenero() == 4) {
+							String resultado = "";
 							System.out.println(peliculas[i].getTitulo());
 							resultado += peliculas[i].getTitulo() + "\n";
+							modelo.addElement(resultado);
 						}
 					}
 
 				}
-				txtPelis.setText(resultado);
+			
+				lista_pelis.setModel(modelo);
 			}
 		});
-		txtPelis.setText("");
 
 		add(btnElegir);
 		// ---------------------------PELIS---------------------------------------------
@@ -138,32 +163,29 @@ public class PanelGeneros extends JPanel {
 		lblPelis.setBounds(282, 35, 181, 14);
 		add(lblPelis);
 
-		// JTextPane txtPelis = new JTextPane();
-		// txtPelis.setBounds(282, 63, 168, 133);
-		// txtPelis.setText("");
-		// add(txtPelis);
-
 		JButton btnAnadir = new JButton("A\u00F1adir");
-		btnAnadir.setBounds(361, 304, 89, 23);
+		btnAnadir.setBounds(350, 304, 89, 23);
 		add(btnAnadir);
-
+		//probar para añadir pelis al arraylist desde j list
+		//pelis_seleccion.add((Pelicula) (lista_pelis.getModel().getElementAt(lista_pelis.getSelectedIndex())));
 		JLabel lblSeleccion = new JLabel("Panel Generos");
-		lblSeleccion.setBounds(505, 35, 115, 14);
+		lblSeleccion.setBounds(492, 35, 115, 14);
 		add(lblSeleccion);
 		// ---------------------------PELIS
 		// SELECCIONADAS----------------------------------------------
 		JTextPane txtSeleccion = new JTextPane();
-		txtSeleccion.setBounds(505, 63, 168, 133);
+		txtSeleccion.setBounds(492, 63, 168, 133);
 		txtSeleccion.setText("");
 		add(txtSeleccion);
 
 		JButton btnAceptar = new JButton("Aceptar");
-		btnAceptar.setBounds(584, 304, 89, 23);
+		btnAceptar.setBounds(571, 304, 89, 23);
 		add(btnAceptar);
 
 		btnVolver = new JButton("Volver");
-		btnVolver.setBounds(584, 384, 89, 23);
+		btnVolver.setBounds(571, 382, 89, 23);
 		add(btnVolver);
+
 
 		initializeEvents();
 
