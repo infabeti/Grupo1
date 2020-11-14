@@ -1,5 +1,7 @@
 package Controlador;
 
+import javax.swing.DefaultListModel;
+
 import Modelo.Modelo;
 import Modelo.Pelicula;
 import Vista.PanelBienvenida;
@@ -27,8 +29,7 @@ public class ControladorPanelGeneros {
 		this.controlador.navegarPanelBienvenida();
 	}
 	public void accionadoBotonSeleccionarPanelGeneros(int genero) {
-		
-		
+
 		this.controlador.navegarPanelPeliculas(genero);
 	}
 }
