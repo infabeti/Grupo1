@@ -30,6 +30,7 @@ public class PanelGeneros extends JPanel {
 	private ControladorPanelGeneros controladorPanelGeneros;
 	private JTextField txt_seleccion;
 	String resultado="";
+	String seleccion;
 	public PanelGeneros(ControladorPanelGeneros controladorPanelGeneros) {
 		// ARRAY DE PELICULAS
 		Pelicula[] peliculas = new Pelicula[16];
@@ -95,7 +96,7 @@ public class PanelGeneros extends JPanel {
 		
 
 			public void actionPerformed(ActionEvent arg0) {
-				String seleccion;
+				
 				seleccion = txt_seleccion.getText();// recogemos el dato de seleccion de genero
 
 				if (seleccion.equals("1")) {
@@ -179,6 +180,13 @@ public class PanelGeneros extends JPanel {
 		add(lblPelis);
 
 		JButton btnAnadir = new JButton("Seleccionar");
+		btnAnadir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controladorPanelGeneros.accionadoBotonSeleccionarPanelGeneros(Integer.parseInt(seleccion));
+				
+				
+			}
+		});
 
 		btnAnadir.setBounds(271, 304, 168, 23);
 		add(btnAnadir);

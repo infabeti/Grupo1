@@ -26,4 +26,9 @@ public class ControladorPanelGeneros {
 	public void accionadoBottonVolverPanelGeneros() {
 		this.controlador.navegarPanelBienvenida();
 	}
+	public void accionadoBotonSeleccionarPanelGeneros(int genero) {
+		
+		
+		this.controlador.navegarPanelPeliculas(genero);
+	}
 }
