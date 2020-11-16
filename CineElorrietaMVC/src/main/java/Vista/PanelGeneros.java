@@ -91,6 +91,16 @@ public class PanelGeneros extends JPanel {
 		scrollPane.setViewportView(lista_pelis);
 		
 		DefaultListModel modelo = new DefaultListModel();//necesario crear un modelo con el que llenar el jlist
+		JButton btnAnadir = new JButton("Seleccionar");
+		btnAnadir.setEnabled(false);
+		
+		btnAnadir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controladorPanelGeneros.accionadoBotonSeleccionarPanelGeneros(Integer.parseInt(seleccion));
+				
+				
+			}
+		});
 		
 		JButton btnElegir = new JButton("Aceptar");
 		btnElegir.setBounds(61, 304, 168, 23);
@@ -114,6 +124,7 @@ public class PanelGeneros extends JPanel {
 						}
 
 					}
+					btnAnadir.setEnabled(true);
 
 				}
 				if (seleccion.equals("2")) {
@@ -131,6 +142,7 @@ public class PanelGeneros extends JPanel {
 						}
 
 					}
+					btnAnadir.setEnabled(true);
 				}
 				if (seleccion.equals("3")) {
 					modelo.clear();
@@ -144,6 +156,7 @@ public class PanelGeneros extends JPanel {
 							
 						}
 					}
+					btnAnadir.setEnabled(true);
 
 				}
 				if (seleccion.equals("4")) {
@@ -157,6 +170,7 @@ public class PanelGeneros extends JPanel {
 							txt_seleccion.setText("");
 						}
 					}
+					btnAnadir.setEnabled(true);
 
 				}
 				/*REVISAR XQ SIEMPRE SALTA EL MESNSAJE DE SELECCION INCORRECTA
@@ -181,14 +195,7 @@ public class PanelGeneros extends JPanel {
 		lblPelis.setBounds(282, 35, 181, 14);
 		add(lblPelis);
 
-		JButton btnAnadir = new JButton("Seleccionar");
-		btnAnadir.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controladorPanelGeneros.accionadoBotonSeleccionarPanelGeneros(Integer.parseInt(seleccion));
-				
-				
-			}
-		});
+		
 
 		btnAnadir.setBounds(271, 304, 168, 23);
 		add(btnAnadir);
