@@ -173,17 +173,13 @@ public class PanelGeneros extends JPanel {
 					btnAnadir.setEnabled(true);
 
 				}
-				/*REVISAR XQ SIEMPRE SALTA EL MESNSAJE DE SELECCION INCORRECTA
-				 * 
-				 * if ((!seleccion.equals("4")||(!seleccion.equals("3"))||(!seleccion.equals("2"))||(!seleccion.equals("1"))))  {
+				
+				if ((!seleccion.equals("4")&&(!seleccion.equals("3"))&&(!seleccion.equals("2"))&&(!seleccion.equals("1"))))  {
 					JOptionPane.showMessageDialog(null, "Seleccion incorrecta");
 					txt_seleccion.setText("");
 					
 				}
-				else{
-					JOptionPane.showMessageDialog(null, "Seleccion incorrecta");
-					txt_seleccion.setText("");
-				}*/
+				
 			
 				lista_pelis.setModel(modelo);
 			}
