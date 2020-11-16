@@ -119,6 +119,7 @@ public class ControladorPanelPeliculas {
 					}
 					else {
 						JOptionPane.showMessageDialog(null, "No se puede introducir la pelicula, porque no hay tiempo");
+						controlador.navegarPanelResumen();
 					}
 					
 					
@@ -128,6 +129,20 @@ public class ControladorPanelPeliculas {
 			
 		}
 	}
+
+	public static ArrayList<Pelicula> getPeliculasSabado() {
+		return peliculasSabado;
+	}
+
+	
+
+	public static ArrayList<Pelicula> getPeliculasDomingo() {
+		return peliculasDomingo;
+	}
+
+
+	
+	
 	
 	
 	
