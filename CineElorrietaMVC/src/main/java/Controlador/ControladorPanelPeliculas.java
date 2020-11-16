@@ -4,12 +4,15 @@ import java.util.ArrayList;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 
 import Modelo.Modelo;
 import Modelo.Pelicula;
 import Vista.PanelPeliculas;
 import Vista.Vista;
 import Vista.PanelGeneros;
+
+
 
 public class ControladorPanelPeliculas {
 
@@ -45,6 +48,11 @@ public class ControladorPanelPeliculas {
 		
 		
 	}
+	
+	public void accionadoBotonVolverPanelPeliculas() {
+		controlador.navegarPanelGeneros();
+		
+	}
 	public int minutosTotalesSabado() {
 		int minutosTotales=0;
 		for(int i=0;i<peliculasSabado.size();i++) {
@@ -58,7 +66,7 @@ public class ControladorPanelPeliculas {
 	}
 	public int minutosTotalesDomingo() {
 		int minutosTotales=0;
-		for(int i=0;i<peliculasSabado.size();i++) {
+		for(int i=0;i<peliculasDomingo.size();i++) {
 			minutosTotales=(int) (minutosTotales+peliculasDomingo.get(i).getDuracion());
 		}
 		
@@ -71,7 +79,7 @@ public class ControladorPanelPeliculas {
 	public void accionadoBotonAnadirPanelPeliculas() {
 		Pelicula[] peliculas=PanelGeneros.getPeliculas();
 		JList lista_pelis=PanelPeliculas.getLista_pelis();
-		System.out.println((String)lista_pelis.getSelectedValue());
+		//System.out.println((String)lista_pelis.getSelectedValue());
 		
 	
 		if(lista_pelis.getSelectedValue()==null) {
@@ -86,21 +94,31 @@ public class ControladorPanelPeliculas {
 				titulo=peliculas[i].getTitulo();
 				//System.out.println(titulo+"  "+(String)lista_pelis.getSelectedValue());
 				
-				//no funciona este if////////////////////////////////////////////////////////////////////////////////////////////
-				if(((String)titulo.trim()).equals((String)lista_pelis.getSelectedValue())) {
+				
+			
+				
+				
+				if(titulo.toString().trim().equals(lista_pelis.getSelectedValue().toString().trim())) {
 					
-					System.out.println("Entro");
+					
 					//Para que se pueda añadir una pelicula tiene que sumar menos de 8horas el sabado completo (480minutos)
 					if((peliculas[i].getDuracion()+minutosTotalesSabado())<480){
 						peliculasSabado.add(peliculas[i]);
+						controlador.navegarPanelGeneros();
+						System.out.println("Peliculas Sabado-> "+peliculasSabado.size());
+						System.out.println("Minutos-> "+minutosTotalesSabado());
+						
 						
 					}
 					else if((peliculas[i].getDuracion()+minutosTotalesDomingo())<360){
 						peliculasDomingo.add(peliculas[i]);
+						controlador.navegarPanelGeneros();
+						System.out.println("Peliculas Domingo-> "+peliculasDomingo.size());
+						System.out.println("Minutos-> "+minutosTotalesDomingo());
 						
 					}
 					else {
-						System.out.println("No se puede introducir la pelicula, porque no hay tiempo");
+						JOptionPane.showMessageDialog(null, "No se puede introducir la pelicula, porque no hay tiempo");
 					}
 					
 					

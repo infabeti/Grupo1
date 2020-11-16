@@ -72,6 +72,15 @@ public class PanelPeliculas extends JPanel {
 		
 		 
 		lista_pelis.setModel(modelo);
+		
+		JButton btnVolver = new JButton("Volver");
+		btnVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				controladorPanelPeliculas.accionadoBotonVolverPanelPeliculas();
+			}
+		});
+		btnVolver.setBounds(459, 350, 89, 23);
+		add(btnVolver);
 
 	}
 
@@ -98,5 +107,4 @@ public class PanelPeliculas extends JPanel {
 	public void setModelo(DefaultListModel modelo) {
 		this.modelo = modelo;
 	}
-	
 }
