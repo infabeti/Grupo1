@@ -32,4 +32,8 @@ public class ControladorPanelGeneros {
 
 		this.controlador.navegarPanelPeliculas(genero);
 	}
+	public PanelGeneros makePanelGeneros(ControladorPanelGeneros controladorGeneros) {
+		return new PanelGeneros(controladorGeneros);
+	}
+
 }
