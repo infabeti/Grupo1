@@ -25,29 +25,24 @@ public class ControladorPanelLogin {
 	public void mostrarPanelLogin() {
 		this.panelLogin = new PanelLogin(this);
 		this.vista.mostrarPanel(this.panelLogin);
-		
-		//Parar ejecucion durante 3 segundos y Mostrar Panel de Login
-		
-		
 	}
 	
-	public void accionadoBotonEntrarPanelLogin() {
+	public void mostrarLoginError() {
+		this.panelLogin.getLblError().setVisible(true);
+	}
+	
+	public void accionadoBotonEntrarPanelLogin(String usuario2, String pass) {
 		System.out.println("Ejecutando evento Boton Entrar");
-		System.out.println(this.panelLogin.getTxtUsuario().getText());
-		System.out.println(this.panelLogin.getPassContrasena().getPassword());
+		System.out.println(usuario2);
+		System.out.println(pass);
 		
-		if(this.panelLogin.getTxtUsuario().getText().equals(usuario) && new String(this.panelLogin.getPassContrasena().getPassword()).equals(contrasena)) {
-		
+		if(usuario2.equals(this.usuario) && pass.equals(this.contrasena)) {		
 			System.out.println("Usuario/Contraseña correctos");
-			this.panelLogin.getLblError().setVisible(false);
-			
 			this.controlador.navegarPanelGeneros();
 		}
-		
-		
 		else {
 			System.out.println("Usuario/contraseña incorrectos");
-			this.panelLogin.getLblError().setVisible(true);
+			mostrarLoginError();
 		}
 		
 	}

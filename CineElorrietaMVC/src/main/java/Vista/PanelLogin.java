@@ -46,7 +46,8 @@ public class PanelLogin extends JPanel {
 		JButton btnEntrar = new JButton("Entrar");
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				controladorPanelLogin.accionadoBotonEntrarPanelLogin();
+				controladorPanelLogin.accionadoBotonEntrarPanelLogin(txtUsuario.getText()
+						, String.valueOf(getPassContrasena().getPassword()));
 				
 				
 			}
