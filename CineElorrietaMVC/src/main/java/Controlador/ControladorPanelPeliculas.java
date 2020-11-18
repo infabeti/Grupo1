@@ -130,6 +130,14 @@ public class ControladorPanelPeliculas {
 		}
 	}
 
+	public static void setPeliculasSabado(ArrayList<Pelicula> peliculasSabado) {
+		ControladorPanelPeliculas.peliculasSabado = peliculasSabado;
+	}
+
+	public static void setPeliculasDomingo(ArrayList<Pelicula> peliculasDomingo) {
+		ControladorPanelPeliculas.peliculasDomingo = peliculasDomingo;
+	}
+
 	public static ArrayList<Pelicula> getPeliculasSabado() {
 		return peliculasSabado;
 	}
@@ -138,6 +146,10 @@ public class ControladorPanelPeliculas {
 
 	public static ArrayList<Pelicula> getPeliculasDomingo() {
 		return peliculasDomingo;
+	}
+	
+	public PanelPeliculas makePanelPeliculas(ControladorPanelPeliculas controladorPeliculas) {
+		return new PanelPeliculas(controladorPeliculas);
 	}
 
 

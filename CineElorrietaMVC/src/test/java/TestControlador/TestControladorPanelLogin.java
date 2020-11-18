@@ -1,4 +1,4 @@
-package TestModelo;
+package TestControlador;
 
 import static org.junit.Assert.*;
 
