@@ -12,6 +12,7 @@ import Controlador.ControladorPanelPeliculas;
 import Modelo.Pelicula;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ListSelectionModel;
 
 public class PanelPeliculas extends JPanel {
 	private JButton btnAnadirPelicula;
@@ -45,6 +46,7 @@ public class PanelPeliculas extends JPanel {
 		add(scrollPane);
 		
 		lista_pelis = new JList();
+		lista_pelis.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		scrollPane.setViewportView(lista_pelis);
 		
 		txtGenero = new JPanel();

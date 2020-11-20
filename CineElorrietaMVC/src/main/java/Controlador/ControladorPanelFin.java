@@ -2,6 +2,7 @@ package Controlador;
 
 import Modelo.Modelo;
 import Vista.PanelFin;
+import Vista.PanelResumen;
 import Vista.Vista;
 
 public class ControladorPanelFin {
@@ -35,6 +36,10 @@ public class ControladorPanelFin {
 		}
 		System.exit(0);
 	
+	}
+	
+	public PanelFin makePanelFin(ControladorPanelFin controladorFin) {
+		return new PanelFin(controladorFin);
 	}
 
 }
