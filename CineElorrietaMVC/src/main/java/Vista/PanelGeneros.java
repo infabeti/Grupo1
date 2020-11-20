@@ -246,9 +246,18 @@ public class PanelGeneros extends JPanel {
 		return peliculas;
 	}
 
+	public static void setPeliculas(Pelicula[] peliculas) {
+		PanelGeneros.peliculas = peliculas;
+	}
+
 	public static String getSeleccion() {
 		return seleccion;
 	}
+
+	public static void setSeleccion(String seleccion) {
+		PanelGeneros.seleccion = seleccion;
+	}
+	
 
 	
 	

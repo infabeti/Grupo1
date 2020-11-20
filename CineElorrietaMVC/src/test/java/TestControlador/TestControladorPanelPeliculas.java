@@ -10,6 +10,8 @@ import static org.mockito.Mockito.verify;
 
 import java.util.ArrayList;
 
+import javax.swing.JList;
+
 import org.junit.Test;
 
 import Controlador.Controlador;
@@ -18,6 +20,7 @@ import Controlador.ControladorPanelPeliculas;
 import Controlador.ControladorPanelPeliculas;
 import Modelo.Modelo;
 import Modelo.Pelicula;
+import Vista.PanelGeneros;
 import Vista.PanelPeliculas;
 import Vista.Vista;
 
@@ -27,6 +30,7 @@ public class TestControladorPanelPeliculas {
 	private Vista vistaMock = mock(Vista.class);
 	private Controlador controladorMock = mock(Controlador.class);
 	private PanelPeliculas panelPeliculasMock = mock(PanelPeliculas.class);
+	private PanelGeneros panelGenerosMock = mock(PanelGeneros.class);
 	private ControladorPanelPeliculas spyControladorPeliculas = spy(new ControladorPanelPeliculas(modeloMock, vistaMock, controladorMock)); 
 	
 	private int resultado;
@@ -171,7 +175,23 @@ public class TestControladorPanelPeliculas {
 						vistaMock, controladorMock);
 				
 				
-				controladorPeliculas.accionadoBotonAnadirPanelPeliculas();
+				controladorPeliculas.accionadoBotonAnadirPanelPeliculas(panelPeliculasMock.getLista_pelis());
+				
+				
+				verify(controladorMock, times(0)).navegarPanelGeneros();
+				
+				
+				panelGenerosMock.setSeleccion("1");
+				
+				
+				String[] opciones= {"Handia"};
+				JList nuevalista=new JList(opciones);
+				
+				panelPeliculasMock.setLista_pelis(nuevalista);
+				panelPeliculasMock.getLista_pelis().setSelectedIndex(0);
+				System.out.println(panelPeliculasMock.getLista_pelis().getSelectedIndex());
+				
+				controladorPeliculas.accionadoBotonAnadirPanelPeliculas(nuevalista);
 				
 				
 				verify(controladorMock, times(1)).navegarPanelGeneros();

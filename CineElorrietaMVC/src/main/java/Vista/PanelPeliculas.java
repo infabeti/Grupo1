@@ -30,7 +30,7 @@ public class PanelPeliculas extends JPanel {
 		btnAnadirPelicula = new JButton("A\u00F1adir Pelicula");
 		btnAnadirPelicula.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controladorPanelPeliculas.accionadoBotonAnadirPanelPeliculas();
+				controladorPanelPeliculas.accionadoBotonAnadirPanelPeliculas(lista_pelis);
 			}
 		});
 		btnAnadirPelicula.setBounds(221, 322, 168, 23);
@@ -56,6 +56,8 @@ public class PanelPeliculas extends JPanel {
 		 Pelicula[] peliculas=PanelGeneros.getPeliculas();
 		 
 		 int genero=Integer.parseInt(PanelGeneros.getSeleccion());
+		
+		 
 		 
 		 
 		modelo.clear();
