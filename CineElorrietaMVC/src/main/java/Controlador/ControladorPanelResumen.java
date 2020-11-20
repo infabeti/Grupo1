@@ -1,6 +1,7 @@
 package Controlador;
 
 import Modelo.Modelo;
+import Vista.PanelGeneros;
 import Vista.PanelLogin;
 import Vista.PanelPeliculas;
 import Vista.PanelResumen;
@@ -68,6 +69,10 @@ public class ControladorPanelResumen {
 		controlador.navegarPanelFin();
 		
 		
+	}
+	
+	public PanelResumen makePanelResumen(ControladorPanelResumen controladorResumen) {
+		return new PanelResumen(controladorResumen);
 	}
 	
 	

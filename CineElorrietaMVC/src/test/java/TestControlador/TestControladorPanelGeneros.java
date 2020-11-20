@@ -24,7 +24,7 @@ public class TestControladorPanelGeneros {
 
 	//testeo del metodo mostrar panelGeneros
 	@Test
-	public void mostrarPanelGeneros() {
+	public void mostrarPanelGenerosTest() {
 		doReturn(panelGeneroMock)
 	    	.when(spyControladorGeneros)
 	    	.makePanelGeneros(any( ControladorPanelGeneros.class)); 
