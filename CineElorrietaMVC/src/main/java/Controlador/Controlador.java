@@ -47,6 +47,7 @@ public class Controlador {
 		System.out.println("Navegar panel Generos");
 		this.controladorPanelGeneros.mostrarPanelGeneros();
 	}
+	
 	public void navegarPanelPeliculas(int genero) {
 		System.out.println("Navegar panel peliculas");
 		this.controladorPanelPeliculas.mostrarPanelPeliculas(genero);
@@ -63,6 +64,9 @@ public class Controlador {
 		this.controladorPanelFin.mostrarPanelFin();
 		
 		
+	}
+	public ControladorPanelGeneros makeControladorGeneros(Modelo modelo, Vista vista, Controlador controlador) {
+		return new ControladorPanelGeneros(this.modelo, this.vista, this);
 	}
 	
 	//metodo que escribi en el fichero de logs los errores que le introduzcamos por parámetro

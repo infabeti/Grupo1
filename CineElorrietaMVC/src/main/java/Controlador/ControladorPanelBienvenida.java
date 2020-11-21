@@ -2,7 +2,7 @@ package Controlador;
 
 import Modelo.Modelo;
 import Vista.PanelBienvenida;
-
+import Vista.PanelGeneros;
 import Vista.Vista;
 
 public class ControladorPanelBienvenida {
@@ -43,5 +43,8 @@ public class ControladorPanelBienvenida {
 	
 	public void accionadoBottonMostrarPanelGeneros() {
 		this.controlador.navegarPanelGeneros();
+	}
+	public PanelBienvenida makePanelBienv(ControladorPanelBienvenida controladorBienvenida) {
+		return new PanelBienvenida(controladorBienvenida);
 	}
 }

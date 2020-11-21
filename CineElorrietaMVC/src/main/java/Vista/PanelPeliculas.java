@@ -34,7 +34,7 @@ public class PanelPeliculas extends JPanel {
 				controladorPanelPeliculas.accionadoBotonAnadirPanelPeliculas(lista_pelis);
 			}
 		});
-		btnAnadirPelicula.setBounds(221, 322, 168, 23);
+		btnAnadirPelicula.setBounds(47, 314, 168, 23);
 		add(btnAnadirPelicula);
 		
 		lblGenero = new JLabel("Genero Seleccionado:");
@@ -42,7 +42,7 @@ public class PanelPeliculas extends JPanel {
 		add(lblGenero);
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(221, 129, 168, 137);
+		scrollPane.setBounds(47, 114, 168, 137);
 		add(scrollPane);
 		
 		lista_pelis = new JList();
@@ -83,7 +83,7 @@ public class PanelPeliculas extends JPanel {
 				controladorPanelPeliculas.accionadoBotonVolverPanelPeliculas();
 			}
 		});
-		btnVolver.setBounds(459, 350, 89, 23);
+		btnVolver.setBounds(308, 314, 89, 23);
 		add(btnVolver);
 
 	}

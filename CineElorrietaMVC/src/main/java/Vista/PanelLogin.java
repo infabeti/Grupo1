@@ -11,6 +11,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 
 
@@ -24,23 +27,33 @@ public class PanelLogin extends JPanel {
 	 * Create the panel.
 	 */
 	public PanelLogin(ControladorPanelLogin controladorPanelLogin) {
+		
 		setLayout(null);
 		
 		JLabel lblContrasena = new JLabel("Contrase\u00F1a:");
-		lblContrasena.setBounds(92, 110, 70, 14);
+		lblContrasena.setBounds(142, 233, 89, 14);
 		add(lblContrasena);
 		
 		JLabel lblUsuario = new JLabel("Usuario:");
-		lblUsuario.setBounds(92, 85, 70, 14);
+		lblUsuario.setBounds(142, 202, 70, 14);
 		add(lblUsuario);
 		
 		txtUsuario = new JTextField();
-		txtUsuario.setBounds(171, 82, 86, 20);
+		txtUsuario.setBounds(252, 199, 86, 20);
 		add(txtUsuario);
 		txtUsuario.setColumns(10);
 		
 		passContrasena = new JPasswordField();
-		passContrasena.setBounds(172, 107, 121, 20);
+		passContrasena.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				  if (e.getKeyCode()==KeyEvent.VK_ENTER){
+			    	   controladorPanelLogin.accionadoBotonEntrarPanelLogin(txtUsuario.getText()
+								, String.valueOf(getPassContrasena().getPassword()));
+			       }
+			}
+		});
+		passContrasena.setBounds(252, 230, 121, 20);
 		add(passContrasena);
 		
 		JButton btnEntrar = new JButton("Entrar");
@@ -52,17 +65,17 @@ public class PanelLogin extends JPanel {
 				
 			}
 		});
-		btnEntrar.setBounds(171, 222, 89, 23);
+		btnEntrar.setBounds(198, 327, 89, 23);
 		add(btnEntrar);
 		
 		lblError = new JLabel("usuario/contrase\u00F1a incorrectos");
 		lblError.setForeground(Color.RED);
-		lblError.setBounds(92, 170, 272, 14);
+		lblError.setBounds(164, 283, 272, 14);
 		add(lblError);
 		
 		lblLogin = new JLabel("LOGIN");
 		lblLogin.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblLogin.setBounds(171, 11, 141, 55);
+		lblLogin.setBounds(198, 112, 141, 55);
 		add(lblLogin);
 		lblError.setVisible(false);
 	

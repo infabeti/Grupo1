@@ -1,6 +1,7 @@
 package Controlador;
 
 import Modelo.Modelo;
+import Vista.PanelGeneros;
 import Vista.PanelLogin;
 import Vista.Vista;
 
@@ -27,10 +28,13 @@ public class ControladorPanelLogin {
 		this.vista.mostrarPanel(this.panelLogin);
 	}
 	
-	public void mostrarLoginError() {
+	public void mostrarLoginError() {/*no se puede testear, es de la vista */
 		this.panelLogin.getLblError().setVisible(true);
 	}
-	
+	public PanelLogin makePanelLogin(ControladorPanelLogin controladorLogin) {
+		return new PanelLogin(controladorLogin);
+	}
+
 	public void accionadoBotonEntrarPanelLogin(String usuario2, String pass) {
 		System.out.println("Ejecutando evento Boton Entrar");
 		System.out.println(usuario2);

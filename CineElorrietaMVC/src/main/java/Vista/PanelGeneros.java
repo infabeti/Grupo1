@@ -32,11 +32,14 @@ public class PanelGeneros extends JPanel {
 	String resultado="";
 	static String seleccion;
 	private static Pelicula[] peliculas = new Pelicula[16];
-	
-	public PanelGeneros(ControladorPanelGeneros controladorPanelGeneros) {
-		// ARRAY DE PELICULAS
-		
 
+	public PanelGeneros(ControladorPanelGeneros controladorPanelGeneros) {
+
+	
+		//this.setSize(593, 439);
+	
+
+		// ARRAY DE PELICULAS
 		peliculas[0] = new Pelicula(1, "Handia", 116);
 		peliculas[1] = new Pelicula(1, "La lista de Schindler", 197);
 		peliculas[2] = new Pelicula(1, "Cadena Perpetua", 142);
@@ -196,30 +199,6 @@ public class PanelGeneros extends JPanel {
 		btnAnadir.setBounds(271, 304, 168, 23);
 		add(btnAnadir);
 
-		/*INTENTO DE RELLENAR EL ARRAYLIST-QUITAR DE ESTA PANTALLA
-		 * 
-		 * btnAnadir.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			//recogemos la peli seleccionada y rellenamos el arraylist 
-			for (int i = 0; i < peliculas.length; i++) {
-			
-				if(peliculas[i].getTitulo().equals(lista_pelis.getSelectedValue())) {
-					System.out.println(lista_pelis.getSelectedValue());
-					System.out.println(peliculas[i].getTitulo());
-					pelis_seleccion.add(peliculas[i]);
-				
-				}
-			}
-			for (int i = 0; i < pelis_seleccion.size(); i++) {
-			//System.out.println(pelis_seleccion.get(i).toString());
-				resultado+=pelis_seleccion.get(i).getTitulo()+"\n";
-			
-			}
-			//pelis_seleccion.add((Pelicula) lista_pelis.getSelectedValue());
-				//pelis_seleccion.add((Pelicula) (lista_pelis.getModel().getElementAt(lista_pelis.getSelectedIndex())));
-			}
-		});
-*/
 		btnVolver = new JButton("Volver");
 		btnVolver.setBounds(350, 372, 89, 23);
 		add(btnVolver);

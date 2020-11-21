@@ -20,9 +20,9 @@ public class PanelBienvenida extends JPanel{
 		
 		setLayout(null);
 		
-		lblBienvenida = new JLabel("BIENVENIDO");
-		lblBienvenida.setFont(new Font("Tahoma", Font.PLAIN, 29));
-		lblBienvenida.setBounds(125, 66, 176, 56);
+		lblBienvenida = new JLabel("\u00A1Bienvenid@!");
+		lblBienvenida.setFont(new Font("Impact", Font.PLAIN, 56));
+		lblBienvenida.setBounds(96, 152, 331, 136);
 		add(lblBienvenida);
 		
 		initializeEvents();

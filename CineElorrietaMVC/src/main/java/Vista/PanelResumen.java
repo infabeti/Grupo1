@@ -21,11 +21,11 @@ public class PanelResumen extends JPanel {
 		setLayout(null);
 		
 		JLabel lblResumen = new JLabel("RESUMEN:");
-		lblResumen.setBounds(235, 51, 96, 14);
+		lblResumen.setBounds(91, 49, 96, 14);
 		add(lblResumen);
 		
 		txtResumen = new JTextArea();
-		txtResumen.setBounds(117, 93, 302, 203);
+		txtResumen.setBounds(91, 96, 302, 203);
 		txtResumen.setEnabled(false);
 		add(txtResumen);
 		
@@ -35,7 +35,7 @@ public class PanelResumen extends JPanel {
 				controladorPanelResumen.accionadoBotonAceptarPanelResumen();
 			}
 		});
-		btnAceptar.setBounds(78, 376, 89, 23);
+		btnAceptar.setBounds(91, 353, 89, 23);
 		add(btnAceptar);
 		
 		JButton btnRechazar = new JButton("Rechazar");
@@ -44,7 +44,7 @@ public class PanelResumen extends JPanel {
 				controladorPanelResumen.accionadoBotonRechazarPanelResumen();
 			}
 		});
-		btnRechazar.setBounds(367, 376, 89, 23);
+		btnRechazar.setBounds(304, 353, 89, 23);
 		add(btnRechazar);
 
 	}
